@@ -1,11 +1,7 @@
 #include <iostream>
-
-#include "Course.h"
+#include "Algo.h"
 
 int main() {
-  std::string s;
-  std::cin >> s;
-  Course C;
-  C.SetName(s);
-  std::cout << C.GetName();
+  auto solve = Algo();
+  solve.Solve();
 }

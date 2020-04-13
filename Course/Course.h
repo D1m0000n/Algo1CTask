@@ -32,11 +32,21 @@ class Course {
     pred_.insert(id);
   }
 
+  void SetLevel(const unsigned int level) {
+    level_ = level;
+  }
+
+  unsigned int GetLevel() const {
+    return level_;
+  }
+
   std::unordered_set<std::vector<unsigned int>> children_;
   std::unordered_set<unsigned int> pred_;
 
  private:
   std::string name_;
   unsigned int id_;
+  unsigned int level_:
+
 };
 
