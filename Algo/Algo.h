@@ -11,7 +11,7 @@ class Algo {
  private:
   void Scan();
 
-  std::pair<int, std::vector<int>> GetMinCourses(unsigned int id, std::unordered_set<unsigned int> used);
+  std::pair<int, std::unordered_set<unsigned int>> GetMinCourses(unsigned int id, std::unordered_set<unsigned int> used);
 
   std::pair<unsigned int, unsigned int> third_;
   unsigned int fifth_;
