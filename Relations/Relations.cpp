@@ -9,5 +9,5 @@ void Relations::SetCourses(const std::string& name, unsigned int id, unsigned in
   }
 }
 Relations::Relations() {
-  number_of_courses = 66;
+  number_of_courses_ = 66;
 }

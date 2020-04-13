@@ -1,6 +1,6 @@
 #pragma once
-#include "Relations.h"
 #include <unordered_map>
+#include <Relations.h>
 
 class Algo {
  public:

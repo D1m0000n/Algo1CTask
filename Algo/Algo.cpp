@@ -1,9 +1,10 @@
-#include "Algo.h"
+//#include "Algo.h"
 #include <iostream>
+#include "Algo.h"
 
 void Algo::Solve() {
   Scan();
-  //run GetMinCourses
+  //run GetMinCourses by using priority queue
 }
 
 void Algo::Scan() {
@@ -18,21 +19,26 @@ void Algo::Scan() {
 }
 std::pair<int, std::unordered_set<unsigned int>> Algo::GetMinCourses(unsigned int id, std::unordered_set<unsigned int> used) {
   used.insert(id);
-  auto current_course = relations_.courses[id];
-  std::vector <int> do_later;//can choose different tasks
-  std::unordered_set<unsigned int> current_used;
-  for (size_t i = 0; i < current_course.children_.size(); ++i) {
-    if (current_course[i].size() > 1) {
-      do_later.push_back(i);
-    } else {
-      unsigned int cur_if = current_course[i][0];
-      auto res = GetMinCourses(id, used);
-      current_used = res.second;
+  std::unordered_set<unsigned int> current_used = used;
+  auto current_course = relations_.courses_[id];
+
+  for (const auto & child : current_course.children_) { // compulsory courses
+    if (child.size() > 1) {
+      continue;
+    }
+    unsigned int cur_id = child[0];
+    if (used.find(cur_id) == used.end()) {
+      GetMinCourses(cur_id, current_used);
     }
   }
 
-  for (size_t i = 0; i < do_later.size(); ++i) {
-    //check for level of get min from tasks
+  for (const auto & child : current_course.children_) {
+    if (child.size() <= 1) {
+      continue;
+    }
+    //здесь придется сливать сеты, потому что у нас может быть несколько различных курсов на выбор(то есть 2/3, 4/5,
+    //например) А также проверить на приритеты, если является 2м уровнем
+
   }
   //also check for level 3 tasks if they are not used
   //return minimum of all condiditons

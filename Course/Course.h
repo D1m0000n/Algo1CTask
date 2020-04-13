@@ -5,7 +5,6 @@
 
 class Course {
  public:
-//  Course(std::string  name, unsigned int id);
   Course() = default;
 
   void SetName(std::string name) {
@@ -46,7 +45,6 @@ class Course {
  private:
   std::string name_;
   unsigned int id_;
-  unsigned int level_:
-
+  unsigned int level_;
 };
 
